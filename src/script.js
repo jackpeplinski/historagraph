@@ -14,6 +14,8 @@ function getWikipediaTable() {
         const entry = firstTable[i];
         if (!isNaN(entry[0])) {
           console.log(entry[1]);
+          // for each title search spotify for track id
+          // for each track id get the release date
         }
       }
       //   console.log(response.data[0].data[1][1])
