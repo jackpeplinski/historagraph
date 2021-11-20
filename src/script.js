@@ -25,8 +25,7 @@ function getWikipediaTable() {
         const entry = firstTable[i];
         if (!isNaN(entry[0])) {
           // if the song doesn't have a rank, the entry is not a song so it can be ignored
-          //   console.log(entry[1]);
-
+          console.log(entry[1]);
           getSpotifyID(entry[1]);
           // for each title search spotify for track id
           // for each track id get the release date
@@ -45,7 +44,7 @@ function getSpotifyID(trackName) {
     url: `https://api.spotify.com/v1/search?q=${trackName}&type=track`,
     headers: {
       Authorization:
-        "Bearer BQA3gupRatv_SUmGfkmO1mj4dyE4T_DoVOpw3NC3l3bx98qbdySpcIBAKmFG7y6TqQ_gOmTBayJ686R0FeU",
+        "Bearer BQBTrx-obX7qQm4lAZ55p1Sa6_iUocP6w53ZfVmHJUbtFGQ53ZzF0O9MfHKxqpyET0gfvdcnVAAkgfP_xd0",
       "Content-Type": "application/json",
     },
   };
@@ -53,27 +52,7 @@ function getSpotifyID(trackName) {
   axios(config)
     .then(function (response) {
       console.log(response.data.tracks.items[0].id);
-      getReleaseDate(response.data.tracks.items[0].id);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-}
-
-function getReleaseDate(trackID) {
-  var config = {
-    method: "get",
-    url: `https://api.spotify.com/v1/tracks/${trackID}`,
-    headers: {
-      Authorization:
-        "Bearer BQA3gupRatv_SUmGfkmO1mj4dyE4T_DoVOpw3NC3l3bx98qbdySpcIBAKmFG7y6TqQ_gOmTBayJ686R0FeU",
-      "Content-Type": "application/json",
-    },
-  };
-
-  axios(config)
-    .then(function (response) {
-      console.log(response.data.album.release_date);
+      console.log(response.data.tracks.items[0].album.release_date);
     })
     .catch(function (error) {
       console.log(error);
