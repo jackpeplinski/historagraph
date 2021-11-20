@@ -1,12 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
 import { SpotifyTimeline } from "./components/Timeline"
+import { Box } from "@chakra-ui/react"
 
 function App() {
   return (
-    <div className="App">
-      <SpotifyTimeline></SpotifyTimeline>
-    </div>
+    <Box className="App" padding="2em">
+      <h1>Spotify Histogram</h1>
+      <p>
+        A timeline of the most popular songs by the years - powered by the 
+        Spotify API.
+      </p>
+      <SpotifyTimeline />
+    </Box>
   );
 }
 
