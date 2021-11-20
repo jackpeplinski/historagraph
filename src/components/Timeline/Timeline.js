@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet";
 import { useEffect } from "react"
 import { Timeline } from '@knight-lab/timelinejs';
 import '@knight-lab/timelinejs/dist/css/timeline.css';
@@ -45,7 +44,10 @@ export const SpotifyTimeline = () => {
   }
 
   useEffect(() => {
-    Timeline('timeline-embed', sampleTimeline);
+    // const timeline = new Timeline('timeline-embed', sampleTimeline);
+    
+    const timeline = new window.TL.Timeline('timeline-embed',
+            'https://docs.google.com/spreadsheets/d/1cWqQBZCkX9GpzFtxCWHoqFXCHg-ylTVUWlnrdYMzKUI/pubhtml');
   })
   
   return (
