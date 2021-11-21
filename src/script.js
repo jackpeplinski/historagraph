@@ -26,7 +26,7 @@ function getWikipediaTable() {
         const entry = firstTable[i];
         if (!isNaN(entry[0])) {
           // if the song doesn't have a rank, the entry is not a song so it can be ignored
-          getSpotifyID(entry[1]);
+          getSpotifyData(entry[1]);
           // for each title search spotify for track id
           // for each track id get the release date
           //   getGeniusID(entry[1].replace(/['"]+/g, ""));
@@ -38,7 +38,7 @@ function getWikipediaTable() {
     });
 }
 
-function getSpotifyID(trackName) {
+function getSpotifyData(trackName) {
   var config = {
     method: "get",
     url: `https://api.spotify.com/v1/search?q=${trackName}&type=track`,
