@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { Box } from "@chakra-ui/react";
-import { demo } from "../../data";
+import { songs } from "../../songs"
 
 const additionalOptions = {
   font: "ubuntu",
@@ -10,7 +10,7 @@ export const SpotifyTimeline = () => {
   useEffect(() => {
     const timeline = new window.TL.Timeline(
       "timeline-embed",
-      demo,
+      songs,
       additionalOptions
     );
   });
